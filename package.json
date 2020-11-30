@@ -1,0 +1,25 @@
+{
+  "name": "functional-javascript-book",
+  "version": "1.0.0",
+  "description": "「JavaScript関数型プログラミング 複雑性を抑える発想と実践法を学ぶ」で登場したコードを手元で動かすやつです",
+  "type": "module",
+  "main": "index.js",
+  "dependencies": {
+    "lodash": "^4.17.20"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kazuhi-ra/functional-javascript-book.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kazuhi-ra/functional-javascript-book/issues"
+  },
+  "homepage": "https://github.com/kazuhi-ra/functional-javascript-book#readme"
+}
