@@ -44,7 +44,7 @@ class Person {
 
     for (const idx in friends) {
       const friend = friends[idx]
-      if (this.address.country === friends.address.country) {
+      if (this.address?.country === friend.address?.country) {
         result.push(friend)
       }
     }
@@ -78,6 +78,50 @@ class Student extends Person {
   }
 }
 
-const kazuhira = new Student('kazuhira', 'hirano', 222, 'medaka')
+// class Address {
+//   constructor(adress) {
+//     this._address = adress
+//   }
 
-console.log(kazuhira.toString())
+//   get adress() {
+//     return this._address
+//   }
+// }
+
+class Address {
+  constructor(country, state, city, zip, street) {
+    this._country = country
+    // this._state = state
+    // this._city = city
+    // this._zip = zip
+    // this._street = street
+  }
+  // get street() {
+  //   return this._street
+  // }
+  // get city() {
+  //   return this._city
+  // }
+  // get state() {
+  //   return this._state
+  // }
+  // get zip() {
+  //   return this._zip
+  // }
+  get country() {
+    return this._country
+  }
+}
+
+const curry = new Student('Haskell', 'Curry', '111111111', 'PennState')
+curry.address = new Address('US')
+const turing = new Student('Alan', 'Turing', '222222222', 'Princeton')
+turing.address = new Address('England')
+const church = new Student('Alonzo', 'Church', '333333333', 'Princeton')
+church.address = new Address('US')
+const kleene = new Student('Stephen', 'Kleene', '444444444', 'Princeton')
+kleene.address = new Address('US')
+
+console.log(1, curry.studentsInSameCountryAndSchool([turing, church, kleene]))
+console.log(2, turing.studentsInSameCountryAndSchool([curry, church, kleene]))
+console.log(3, church.studentsInSameCountryAndSchool([curry, turing, kleene]))
