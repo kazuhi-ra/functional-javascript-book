@@ -38,6 +38,19 @@ class Person {
   toString() {
     return `Person(${this._firstname}, ${this._lastname})`
   }
+
+  peopleInSameCountry(friends) {
+    const result = []
+
+    for (const idx in friends) {
+      const friend = friends[idx]
+      if (this.address.country === friends.address.country) {
+        result.push(friend)
+      }
+    }
+
+    return result
+  }
 }
 
 class Student extends Person {
@@ -48,6 +61,20 @@ class Student extends Person {
 
   get school() {
     return this._school
+  }
+
+  studentsInSameCountryAndSchool(friends) {
+    const closeFriends = super.peopleInSameCountry(friends)
+
+    const result = []
+    for (const idx in closeFriends) {
+      const friend = closeFriends[idx]
+      if (friend.school === this.school) {
+        result.push(friend)
+      }
+    }
+
+    return result
   }
 }
 
