@@ -125,3 +125,13 @@ kleene.address = new Address('US')
 console.log(1, curry.studentsInSameCountryAndSchool([turing, church, kleene]))
 console.log(2, turing.studentsInSameCountryAndSchool([curry, church, kleene]))
 console.log(3, church.studentsInSameCountryAndSchool([curry, turing, kleene]))
+
+// functional
+const selector = (country, school) => student =>
+  student.address.country === country && student.school === school
+
+const findStudentsBy = (friends, selector) => friends.filter(selector)
+
+console.log(
+  findStudentsBy([curry, turing, church, kleene], selector('US', 'Princeton'))
+)
